@@ -215,7 +215,7 @@ a {
   gap: 10px;
   justify-content: center;
   font-size: 14px;
-  min-width: 140px;
+  min-width: 170px;
   transition: transform 0.2s, background 0.2s;
   opacity: 0;
   transform: translateY(10px);
