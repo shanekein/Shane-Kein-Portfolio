@@ -1,0 +1,246 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #070707;
+  color: #eee;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 80px;
+  position: sticky;
+  top: 0;
+  background: #070707;
+  z-index: 100;
+  transform: translateY(-20px);
+  opacity: 0;
+  animation: slideDown 1s forwards 0.3s;
+}
+
+@keyframes slideDown {
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.logo {
+  font-size: 28px;
+  color: gray;
+  font-weight: 1000;
+  margin-left: -30px;
+}
+
+.nav ul {
+  display: flex;
+  gap: 30px;
+}
+
+.nav a {
+  font-weight: 500;
+  color: #9da0a0;
+  transition: color 0.3s;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: skyblue;
+}
+
+/* MAIN CONTENT */
+.resume-section {
+  max-width: 1200px;
+  margin: 100px auto;
+  padding: 0 50px;
+}
+
+/* SECTION TITLES */
+.resume-section h2 {
+  display: flex;
+  align-items: center;
+  font-size: 17px;
+  font-weight: 700;
+  color: #ccc;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  transform: translateX(-30px);
+  opacity: 0;
+  animation: slideRight 1s forwards 0.5s;
+}
+
+.resume-section h2::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: #333;
+  margin-left: 15px;
+  border-radius: 1px;
+}
+
+/* EDUCATION TIMELINE */
+.timeline {
+  position: relative;
+  margin-left: 20px;
+  padding-left: 20px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 21px;
+  top: 0;
+  width: 2px;
+  height: 0; /* start at 0 */
+  background: gray;
+  animation: growLine 3s forwards;
+}
+
+@keyframes growLine {
+  to { height: 100%; }
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+  padding-left: 20px;
+  opacity: 0;
+  animation: fadeCircle 0.5s forwards;
+}
+
+.timeline-item:nth-child(1) { animation-delay: 0.5s; }
+.timeline-item:nth-child(2) { animation-delay: 1.2s; }
+.timeline-item:nth-child(3) { animation-delay: 1.9s; }
+.timeline-item:nth-child(4) { animation-delay: 2.6s; }
+
+@keyframes fadeCircle {
+  from { opacity: 0; transform: scale(0.5); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: -3px;
+  width: 18px;
+  height: 18px;
+  background: skyblue;
+  border-radius: 50%;
+  border: 3px solid #070707;
+  opacity: 0;
+  animation: showCircle 0.5s forwards;
+}
+
+.timeline-item:nth-child(1)::before { animation-delay: 0.5s; }
+.timeline-item:nth-child(2)::before { animation-delay: 1.2s; }
+.timeline-item:nth-child(3)::before { animation-delay: 1.9s; }
+.timeline-item:nth-child(4)::before { animation-delay: 2.6s; }
+
+@keyframes showCircle {
+  from { opacity: 0; transform: scale(0.5); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* WORK EXPERIENCE */
+.work-experience {
+  margin-top: 100px;
+}
+
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.experience-item {
+  transform: translateX(-30px);
+  opacity: 0;
+  animation: slideRight 1s forwards;
+}
+
+.experience-item:nth-child(1) { animation-delay: 0.5s; }
+.experience-item:nth-child(2) { animation-delay: 1.0s; }
+.experience-item:nth-child(3) { animation-delay: 1.5s; }
+
+.experience-item h3 {
+  color: skyblue;
+  margin-bottom: 5px;
+}
+
+.experience-item p {
+  color: #ccc;
+}
+
+/* ACHIEVEMENTS */
+.achievements {
+  margin-top: 100px;
+  transform: translateX(-30px);
+  opacity: 0;
+  animation: slideRight 1s forwards 2s;
+}
+
+.achievement-list {
+  list-style: disc;
+  margin-left: 50px;
+}
+
+.achievement-list li {
+  margin-left: 50px;
+  margin-bottom: 10px;
+  color: #ccc;
+}
+
+/* ANIMATION KEYFRAMES */
+@keyframes slideRight {
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .header {
+    flex-direction: column;
+    gap: 25px;
+    padding: 25px 30px;
+  }
+
+  .nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .resume-section {
+    margin: 50px auto;
+    padding: 0 20px;
+  }
+
+  .timeline {
+    margin-left: 0;
+    padding-left: 20px;
+  }
+}
+
+.char {
+  margin-left: 53px;
+}
+
+.work-item {
+  margin-left: 50px;
+}
+
+.work-item {
+  transform: translateX(-30px);
+  opacity: 0;
+  animation: slideRight 1s forwards 2s;
+}

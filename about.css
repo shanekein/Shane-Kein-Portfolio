@@ -1,0 +1,357 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #070707;
+  color: #eee;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 80px;
+  position: sticky;
+  top: 0;
+  background: #070707;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 28px;
+  color: gray;
+  font-weight: 1000;
+  margin-left: -30px;
+  transform: translateY(-20px);
+  opacity: 0;
+  animation: slideDown 1s forwards 0.3s;
+}
+
+@keyframes slideDown {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.nav ul {
+  display: flex;
+  gap: 30px;
+}
+
+.nav a {
+  font-weight: 500;
+  color: #9da0a0;
+  transition: color 0.3s;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: skyblue;
+}
+
+/* MAIN CONTENT */
+.about-section {
+  max-width: 1200px;
+  margin: 100px auto;
+  padding: 0 50px;
+}
+
+/* SECTION TITLES */
+.about-section h2 {
+  display: flex;
+  align-items: center;
+  font-size: 17px;
+  font-weight: 700;
+  color: #ccc;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s forwards;
+}
+
+.about-section h2::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: #333;
+  margin-left: 15px;
+  border-radius: 1px;
+}
+
+@keyframes fadeUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* SELF INTRODUCTION */
+.self-intro h3 {
+  font-size: 40px;
+  font-weight: 1100;
+  color: #ccc;
+  margin-bottom: 15px;
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: slideRightText 1s forwards 0.4s;
+}
+
+@keyframes slideRightText {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.intro-content {
+  display: flex;
+  gap: 70px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.intro-image img {
+  width: 340px;
+  height: 460px;
+  object-fit: cover;
+  border-radius: 12px;
+  transform: translateX(-30px);
+  opacity: 0;
+  animation: slideRight 1s forwards 0.5s;
+}
+
+@keyframes slideRight {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.intro-text {
+  flex: 1;
+  min-width: 300px;
+  padding-top: 10px;
+  text-align: justify;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s forwards 0.6s;
+}
+
+.intro-text .title {
+  font-size: 25px;
+  font-weight: 800;
+  color: skyblue;
+  margin-bottom: 15px;
+}
+
+.intro-text .greeting {
+  margin-bottom: 15px;
+}
+
+/* BULLETS - CLEAN GRID LAYOUT */
+.details-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px 40px;
+  margin-bottom: 15px;
+  padding-left: 0;
+}
+
+.details-columns li {
+  list-style: disc;
+  margin-left: 20px;
+  opacity: 0;
+  transform: translateX(-10px);
+  animation: fadeUp 1s forwards;
+  animation-delay: 0.7s;
+}
+
+.intro-text .long-description {
+  margin-top: 10px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s forwards 0.8s;
+}
+
+/* INTERESTS */
+.interests {
+  margin-top: 100px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s forwards 0.9s;
+}
+
+.interests h2 {
+  margin-bottom: 25px;
+}
+
+.interest-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px 25px;
+  justify-items: center;
+}
+
+.interest-box {
+  background: #1c1c1c;
+  padding: 15px 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  font-size: 14px;
+  min-width: 140px;
+  transition: transform 0.2s, background 0.2s;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeUp 0.8s forwards;
+}
+
+.interest-box:hover {
+  transform: translateY(-3px);
+  background: #111111;
+}
+
+.interest-box i {
+  font-size: 18px;
+}
+
+/* SKILLS */
+.skills {
+  margin-top: 100px;
+}
+
+.skills h2 {
+  font-size: 17px;
+  margin-bottom: 25px;
+}
+
+.skill-columns {
+  display: flex;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.skill-column {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.skill {
+  background: #1c1c1c;
+  padding: 15px;
+  border-radius: 10px;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.skill p {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.skill-bar {
+  background: #111;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 12px;
+}
+
+.skill-bar div {
+  height: 100%;
+  background: skyblue;
+  width: 0; /* start at 0% */
+  border-radius: 10px;
+  animation: fillBar 2s forwards;
+}
+
+/* Define separate animations for each skill */
+.skill-html .skill-bar div { animation: fillBar 2s forwards 0.2s; --target: 80%; }
+.skill-org  .skill-bar div { animation: fillBar 2s forwards 0.4s; --target: 85%; }
+.skill-str  .skill-bar div { animation: fillBar 2s forwards 0.6s; --target: 90%; }
+.skill-lead .skill-bar div { animation: fillBar 2s forwards 0.8s; --target: 96%; }
+.skill-comm .skill-bar div { animation: fillBar 2s forwards 1s; --target: 85%; }
+.skill-code .skill-bar div { animation: fillBar 2s forwards 1.2s; --target: 56%; }
+
+@keyframes fillBar {
+  from { width: 0%; }
+  to   { width: var(--target); }
+}
+
+/* TESTIMONIALS */
+.testimonials {
+  margin-top: 120px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s forwards 1s;
+}
+
+.testimonials h2 {
+  font-size: 17px;
+  margin-bottom: 20px;
+}
+
+.testimonials p {
+  font-style: italic;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .header {
+    flex-direction: column;
+    gap: 25px;
+    padding: 25px 30px;
+  }
+
+  .nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .intro-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .intro-image img {
+    width: 260px;
+    height: 360px;
+  }
+
+  .about-section {
+    margin: 50px auto;
+    padding: 0 20px;
+  }
+
+  .skill-columns {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .details-columns {
+    grid-template-columns: 1fr;
+    gap: 10px 20px;
+  }
+}
