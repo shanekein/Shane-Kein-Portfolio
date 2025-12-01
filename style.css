@@ -162,36 +162,42 @@ body {
 
 /* PROFILE IMAGE */
 .right {
+  position: relative; /* for absolute positioning of line-img */
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 0; /* removes inline spacing between images */
   opacity: 0;
-  
-  transform: translateX(120x);
-  
   animation: fadeSlideRight 0.8s forwards;
-  animation-delay:1s;
+  animation-delay: 1s;
 }
 
-.right {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* Make all images inside right block display block */
+.right img {
+  display: block;
+  width: 650px;
+  max-width: 45vw;
+  height: auto;
+  filter: grayscale(100%) contrast(115%);
+  transition: all 0.6s ease;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+/* Hover effect */
+.right img:hover {
+  transform: scale(1.05);
+  filter: grayscale(50%) contrast(120%);
 }
 
 /* BACK IMAGE */
 .right .main-img {
-  width: 650px;
-  max-width: 45vw;
-  height: auto;
-  border-radius: 15px;
-  filter: grayscale(100%) contrast(115%);
-  opacity: 0; /* start invisible */
+  position: relative; /* stacking context for line-img */
   z-index: 2;
 
+  opacity: 0;
   animation: slideInBack 0.8s forwards;
-  animation-delay: 1s; /* first animation */
+  animation-delay: 1s;
 }
 
 /* BACK IMAGE ANIMATION */
@@ -209,11 +215,11 @@ body {
 /* LINE IMAGE */
 .right .line-img {
   position: absolute;
-  top: 120px;     /* desktop starting point */
+  top: 120px;     
   left: -190px;
   width: 400px;
   height: auto;
-  z-index: 1;
+  z-index: 3;  /* higher than back image */
   opacity: 0;
 
   animation: diagonalPierce 0.8s forwards;
@@ -230,22 +236,20 @@ body {
   }
   100% {
     opacity: 1;
-    transform: translate(170px, -40px); /* moves right and up */
+    transform: translate(170px, -40px); 
   }
 }
 
 /* --- RESPONSIVE FOR MOBILE --- */
 @media (max-width: 900px) {
-  /* Back image */
   .right .main-img {
     width: 80vw;
     max-width: 320px;
   }
 
-  /* Line image */
   .right .line-img {
-    top: 100px;     /* lower than desktop */
-    left: -100px;  /* adjust left for small screen */
+    top: 100px;     
+    left: -100px;  
     width: 60vw;
     max-width: 250px;
 
@@ -263,28 +267,26 @@ body {
     }
     100% {
       opacity: 1;
-      transform: translate(110px, -20px); /* smaller diagonal movement */
+      transform: translate(110px, -20px);
     }
   }
 }
 
+@media (max-width: 500px) {
+  .right .main-img {
+    width: 70vw;
+    max-width: 250px;
+  }
 
-.right img {
-  width: 650px;
-  max-width: 45vw;
-  height: auto;
-  filter: grayscale(100%) contrast(115%);
-  transition: all 0.6s ease;
-  border-radius: 15px;
-  cursor: pointer;
+  .right .line-img {
+    width: 55vw;
+    max-width: 200px;
+    top: 80px;
+    left: -60px;
+  }
 }
 
-.right img:hover {
-  transform: scale(1.05);
-  filter: grayscale(50%) contrast(120%);
-}
-
-/* RESPONSIVE */
+/* --- RESPONSIVE OTHER STUFF --- */
 @media (max-width: 900px) {
   .hero {
     padding: 30px 20px;
@@ -296,11 +298,6 @@ body {
 
   .subtitle {
     font-size: 14px;
-  }
-
-  .right img {
-    width: 320px;
-    max-width: 80%;
   }
 
   .site-nav a.active::after {
