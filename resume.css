@@ -244,3 +244,78 @@ a {
   opacity: 0;
   animation: slideRight 1s forwards 2s;
 }
+
+
+
+
+
+
+.het {
+  position: fixed;
+  bottom: 50px;
+  right: -10px;
+
+  width: 70vw;        /* default desktop size */
+  max-width: 1000px;  /* prevents it from being too big */
+  min-width: 300px;
+
+  height: auto;
+  opacity: 0.4;
+  z-index: -1;
+  pointer-events: none;
+
+  /* Animation */
+  animation: floatZoom 12s ease-in-out infinite alternate;
+}
+
+/* Animation keyframes */
+@keyframes floatZoom {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translate(-20px, -20px) scale(1.05); /* slow drift & zoom */
+    opacity: 0.45;
+  }
+  100% {
+    transform: translate(20px, 20px) scale(1); /* back to original */
+    opacity: 0.4;
+  }
+}
+
+/* MOBILE ADJUSTMENTS */
+@media (max-width: 900px) {
+  .het {
+    width: 70vw;      /* smaller relative size */
+    max-width: 400px; /* cap for smaller screens */
+    bottom: -10px;
+    right: -20px;
+    animation: floatZoomMobile 12s ease-in-out infinite alternate;
+  }
+
+  @keyframes floatZoomMobile {
+    0% {
+      transform: translate(0, 0) scale(1);
+      opacity: 0.4;
+    }
+    50% {
+      transform: translate(-10px, -10px) scale(1.03);
+      opacity: 0.42;
+    }
+    100% {
+      transform: translate(10px, 10px) scale(1);
+      opacity: 0.4;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .het {
+    width: 80vw;
+    max-width: 300px;
+    bottom: 0;
+    right: 0;
+    opacity: 0.35;
+  }
+}
